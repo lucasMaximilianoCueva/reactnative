@@ -1,14 +1,25 @@
-import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
+import React, {useEffect} from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 
 import HomeScreen from "./screens/HomeScreen";
+import { NavigationContainer } from "@react-navigation/native";
 import TaskFormScreen from "./screens/TaskFormScreen";
+import { createStackNavigator } from "@react-navigation/stack";
 
 const Stack = createStackNavigator();
 
 const App = () => {
+
+  const loadTask = async () => {
+    const res = await fetch('http://192.168.0.249:3000/tasks')
+    const data = await res.json()
+    console.log(data)
+  }
+  
+  useEffect(() => {
+    loadTask()
+  }, [])
+
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="HomeScreen">
@@ -16,9 +27,9 @@ const App = () => {
           name="HomeScreen"
           component={HomeScreen}
           options={({ navigation }) => ({
-            title: "Tasks App",
+            title: "Notas",
             headerStyle: {
-              backgroundColor: "#222f3e",
+              backgroundColor: "#e76f51",
             },
             headerTitleStyle: {
               color: "#ffffff",
@@ -28,7 +39,7 @@ const App = () => {
                 onPress={() => navigation.navigate("TaskFormScreen")}
               >
                 <Text style={{ color: "#fff", marginRight: 20, fontSize: 15 }}>
-                  New
+                  Nuevo
                 </Text>
               </TouchableOpacity>
             ),
@@ -38,7 +49,7 @@ const App = () => {
           name="TaskFormScreen"
           component={TaskFormScreen}
           options={{
-            title: 'Create a Task',
+            title: 'Crear una Nota',
             headerStyle: {
               backgroundColor: "#222f3e",
             },

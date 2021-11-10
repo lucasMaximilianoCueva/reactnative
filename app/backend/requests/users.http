@@ -1,4 +1,4 @@
-@api = http://localhost:3000/tasks
+@api = http://192.168.0.249:3000/tasks
 
 
 ### Get all tasks
@@ -14,10 +14,10 @@ Content-Type: application/json
 }
 
 ### get a single task
-{{api}}/5
+{{api}}/3
 
 ### delete a single user
-DELETE {{api}}/4
+DELETE {{api}}/3
 
 ### get count
 {{api}}/count

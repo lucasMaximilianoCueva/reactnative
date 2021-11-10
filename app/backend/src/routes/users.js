@@ -1,12 +1,13 @@
-import { Router } from "express";
 import {
   deleteTask,
-  getTasks,
-  saveTask,
   getTask,
-  updateTask,
+  getTasks,
   getTasksCount,
+  saveTask,
+  updateTask,
 } from "../controllers/tasks";
+
+import { Router } from "express";
 
 const router = Router();
 
@@ -41,7 +42,7 @@ const router = Router();
 router.get("/tasks", getTasks);
 
 /**
- * @swagger
+ * @swagger 
  * /tasks/count:
  *  get:
  *    summary: get total tasks counter

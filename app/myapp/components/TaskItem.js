@@ -1,5 +1,6 @@
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+
 import React from "react";
-import { TouchableOpacity, View, Text, StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 const TaskItem = ({ task, handleDelete }) => {
@@ -17,7 +18,7 @@ const TaskItem = ({ task, handleDelete }) => {
         style={{ backgroundColor: "#ee5253", padding: 7, borderRadius: 5 }}
         onPress={() => handleDelete(task.id)}
       >
-        <Text style={{ color: "#fff" }}>Delete</Text>
+        <Text style={{ color: "#fff" }}>Borrar</Text>
       </TouchableOpacity>
     </View>
   );

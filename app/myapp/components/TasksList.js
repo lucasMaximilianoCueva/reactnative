@@ -1,9 +1,9 @@
+import { Alert, FlatList, RefreshControl, SafeAreaView } from "react-native";
 import React, { useEffect, useState } from "react";
-import { FlatList, SafeAreaView, Alert, RefreshControl } from "react-native";
-import { useIsFocused } from "@react-navigation/native";
-
 import { deleteTask, getTasks } from "../api";
+
 import TaskItem from "./TaskItem";
+import { useIsFocused } from "@react-navigation/native";
 
 const TasksList = ({ navigation }) => {
   const [tasks, setTasks] = useState([]);
@@ -27,7 +27,7 @@ const TasksList = ({ navigation }) => {
   }, []);
 
   const handleDelete = (id) => {
-    Alert.alert("Delete Task", "Are you sure you want to delete the task", [
+    Alert.alert("Borrar Nota", "Esta seguro que desea borrar la nota?", [
       {
         text: "Cancel",
         style: "cancel",
